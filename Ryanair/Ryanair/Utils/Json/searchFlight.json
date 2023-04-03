@@ -1,0 +1,79 @@
+{
+    "currency" : "EUR",
+    "serverTimeUTC" : "2016-04-11T11:39:35.268Z",
+    "currPrecision" : 2,
+    "trips" : [
+        { "origin" : "DUB",
+            "destination" : "STN",
+            "dates" : [
+                {"dateOut" : "2016-04-11T00:00:00.000",
+                    "flights" : []
+                },
+                { "dateOut" : "2016-04-12T00:00:00.000",
+                    "flights" : [
+                        { "time" : [ "2016-04-12T10:00:00.000",
+                        "2016-04-12T12:50:00.000" ],
+                            "regularFare" : {
+                                "fareKey" : "0~E~~E9LOW~BND9~~8~X",
+                                "fareClass" : "E",
+                                "fares" : [
+                                    {
+                                        "amount" : 105.99,
+                                        "count" : 1,
+                                        "type" : "ADT",
+                                        "hasDiscount" : false,
+                                        "publishedFare" : 105.99
+                                    }, {
+                                        "amount" : 105.99,
+                                        "count" : 1,
+                                        "type" : "CHD",
+                                        "hasDiscount" : false,
+                                        "publishedFare" : 105.99
+                                    }, {
+                                        "amount" : 105.99,
+                                        "count" : 1,
+                                        "type" : "TEEN",
+                                        "hasDiscount" : false,
+                                        "publishedFare" : 105.99
+                                    }
+                                ]
+                            },
+                            "faresLeft" : -1, "timeUTC" : [
+                                "2016-04-12T09:00:00.000Z",
+                            "2016-04-12T11:50:00.000Z" ],
+                            "duration" : "02:50",
+                            "flightNumber" : "FR 7329",
+                            "infantsLeft" : 18,
+                            "flightKey" : "FR~7329~ ~~LIS~04\/12\/2016 10:00~DUB~04\/12\/2016 12:50~",
+                            "businessFare" : {
+                                "fareKey" : "0~E~~E9LBUS~BS09~~4~X",
+                                "fareClass" : "E",
+                                "fares" : [
+                                    {
+                                        "amount" : 154.99, "count" : 1,
+                                        "type" : "ADT",
+                                        "hasDiscount" : false,
+                                        "publishedFare" : 154.99
+                                    }, {
+                                        "amount" : 154.99,
+                                        "count" : 1,
+                                        "type" : "CHD",
+                                        "hasDiscount" : false,
+                                        "publishedFare" : 154.99
+                                    }, {
+                                        "amount" : 154.99,
+                                        "count" : 1,
+                                        "type" : "TEEN",
+                                        "hasDiscount" : false,
+                                        "publishedFare" : 154.99
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+            
+        }
+    ]
+}
