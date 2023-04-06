@@ -13,7 +13,7 @@ final class SearchViewController: UIViewController {
     //    MARK: - Add components
     
     private lazy var originField: SearchTextField = {
-        let originField = SearchTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let originField = SearchTextField()
         originField.parentDelegate = self
         originField.backgroundColor = .white
         originField.text = ""
@@ -23,7 +23,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var destinationField: SearchTextField = {
-        let destinationField = SearchTextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let destinationField = SearchTextField()
         destinationField.text = ""
         destinationField.backgroundColor = .white
         destinationField.placeholder = "Destination"
@@ -32,7 +32,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var adultField: UITextField = {
-        let adultField = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let adultField = UITextField()
         adultField.placeholder = "Adults: 1 by default"
         adultField.backgroundColor = .white
         adultField.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var teenField: UITextField = {
-        let teenField = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let teenField = UITextField()
         teenField.placeholder = "Teenagers: 0 by default"
         teenField.backgroundColor = .white
         teenField.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var childField: UITextField = {
-        let childField = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let childField = UITextField()
         childField.placeholder = "Children: 0 by default"
         childField.backgroundColor = .white
         childField.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +85,7 @@ final class SearchViewController: UIViewController {
     }()
     
     private lazy var dateField: UITextField = {
-        let dateField = UITextField(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        let dateField = UITextField()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-YY"
         dateField.text = dateFormatter.string(from: date)
@@ -99,18 +99,21 @@ final class SearchViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Search", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .yellow
         button.setTitleColor(.blue, for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.backgroundColor = .yellow
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.white.cgColor
         view.addSubview(button)
         return button
     }()
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [originField, destinationField, dateField, adultField, teenField, childField, horizontalStackView])
-        stackView.backgroundColor = .systemYellow
+        stackView.backgroundColor = .yellow
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         stackView.alignment = .center
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -141,7 +144,6 @@ final class SearchViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
@@ -178,7 +180,6 @@ final class SearchViewController: UIViewController {
     }
     
     func getRequestDate() -> String {
-        //Used in the search parameters, requires date format 2020-02-29
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateFormattedForRequest = dateFormatter.string(from: date)
@@ -207,7 +208,6 @@ final class SearchViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    
     @objc func buttonTapped(_ sender: Any) {
         let destinationField = destinationField.text ?? ""
         let originField = originField.text ?? ""
@@ -219,21 +219,6 @@ final class SearchViewController: UIViewController {
             coordinator?.goToSearchDetails(headerParams: sendParams())
         }
     }
-    
-    //    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //        hideFirstResponder()
-    //
-    //        let parameters = gatherParameters()
-    //
-    //        // Get the new view controller using segue.destination.
-    //        // Pass the selected object to the new view controller.
-    //        if let searchResultsVC = segue.destination as? SearchResultsVC {
-    //            searchResultsVC.searchParameters = parameters
-    //            searchResultsVC.setMockData(onOrOff: self.mockDataSwitch.isOn)
-    //        }
-    //    }
     
     func sendParams() -> [String: Any] {
         let showFakeData = jsonDataSwitch.isOn
@@ -258,7 +243,7 @@ final class SearchViewController: UIViewController {
                            "flexdaysin": 3,
                            "roundTrip": false,
                            "ToUS": "AGREED",
-                           "showfakeData": showFakeData
+                           "showFakeData": showFakeData
         ] as [String: Any]
         
         return parameters
@@ -274,7 +259,6 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         switch pickerView.tag {
         case 1:
             adultField.text = "\(row + 1)"
@@ -315,7 +299,6 @@ extension SearchViewController: ChildNotifiesParent {
     }
     
     func getValidStationsFor(selectedItem: Station) -> [Station] {
-        
         var validStations = [Station]()
         if selectedItem.markets.count > 0 {
             
@@ -367,7 +350,6 @@ private extension SearchViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             stackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             stackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             
             horizontalStackView.heightAnchor.constraint(equalToConstant: 50),
             
@@ -379,7 +361,6 @@ private extension SearchViewController {
             childField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -16),
             childField.heightAnchor.constraint(equalToConstant: 50),
 
-            
             adultField.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 16),
             adultField.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -16),
             adultField.heightAnchor.constraint(equalToConstant: 50),
@@ -401,7 +382,6 @@ private extension SearchViewController {
             button.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             button.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            button.widthAnchor.constraint(equalToConstant: 80),
             button.heightAnchor.constraint(equalToConstant: 60)
         ])
     }

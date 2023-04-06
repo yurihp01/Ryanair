@@ -14,7 +14,7 @@ class SearchDetailsViewController: UIViewController {
     
     private lazy var horizontalStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [originLabel, destinationLabel])
-        stackView.backgroundColor = .systemYellow
+        stackView.backgroundColor = .yellow
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
@@ -39,7 +39,7 @@ class SearchDetailsViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SearchDetailsCell.self, forCellReuseIdentifier: "SearchDetailsCell")
-        tableView.backgroundColor = .systemYellow
+        tableView.backgroundColor = .yellow
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
@@ -76,7 +76,7 @@ class SearchDetailsViewController: UIViewController {
                     print("finished")
                 }
             }, receiveValue: { [weak self] flight in
-                self?.flight = flight
+                self?.flight = flight.first
                 self?.setTableView()
             }).store(in: &cancellable)
     }
