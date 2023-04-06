@@ -38,6 +38,7 @@ final class SearchViewController: UIViewController {
         adultField.translatesAutoresizingMaskIntoConstraints = false
         adultField.tag = 1
         adultField.addTarget(self, action: #selector(numberPickerViewTapped), for: .editingDidBegin)
+        adultField.addDoneButtonOnKeyboard()
         return adultField
     }()
     
@@ -48,6 +49,7 @@ final class SearchViewController: UIViewController {
         teenField.translatesAutoresizingMaskIntoConstraints = false
         teenField.tag = 2
         teenField.addTarget(self, action: #selector(numberPickerViewTapped), for: .editingDidBegin)
+        teenField.addDoneButtonOnKeyboard()
         return teenField
     }()
     
@@ -58,6 +60,7 @@ final class SearchViewController: UIViewController {
         childField.translatesAutoresizingMaskIntoConstraints = false
         childField.tag = 3
         childField.addTarget(self, action: #selector(numberPickerViewTapped), for: .editingDidBegin)
+        childField.addDoneButtonOnKeyboard()
         return childField
     }()
     
@@ -92,6 +95,7 @@ final class SearchViewController: UIViewController {
         dateField.backgroundColor = .white
         dateField.translatesAutoresizingMaskIntoConstraints = false
         dateField.inputView = datePickerView
+        dateField.addDoneButtonOnKeyboard()
         return dateField
     }()
     
