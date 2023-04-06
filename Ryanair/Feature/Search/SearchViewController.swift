@@ -148,23 +148,32 @@ final class SearchViewController: UIViewController {
     
     //  MARK: - Variables and lifecycles
     
-    private var date: Date = Date()
-    private var cancellable = Set<AnyCancellable>()
-    private var stations = [Station]()
     weak var coordinator: SearchCoordinator?
     var viewModel: SearchViewModelProtocol?
     
+    private var date: Date = Date()
+    private var cancellable = Set<AnyCancellable>()
+    private var stations = [Station]()
+    
+    private var dateOut: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateFormattedForRequest = dateFormatter.string(from: date)
+        return dateFormattedForRequest
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideFirstResponder)))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addBinds()
         setView()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        originField.hideList()
+        destinationField.hideList()
     }
     
     init() {
@@ -181,7 +190,9 @@ private extension SearchViewController {
     func setView() {
         title = "Search Flights"
         view.backgroundColor = .blue
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideFirstResponder)))
         setConstraints()
+        addBinds()
     }
     
     func addBinds() {
@@ -254,13 +265,6 @@ private extension SearchViewController {
         date = sender.date
     }
     
-    func getRequestDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateFormattedForRequest = dateFormatter.string(from: date)
-        return dateFormattedForRequest
-    }
-    
     @objc func numberPickerViewTapped(_ sender: UITextField) {
         numberPickerView.tag = sender.tag
         sender.inputView = numberPickerView
@@ -302,7 +306,7 @@ private extension SearchViewController {
         
         let parameters = [ "origin": origin,
                            "destination": destination,
-                           "dateOut": getRequestDate(),
+                           "dateOut": dateOut,
                            "dateIn": "",
                            "adt": adtCount.description,
                            "teen": teenCount.description,
@@ -347,12 +351,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 1 {
-            return 6
-        }
-        return 7
-    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { 6 }
 }
 
 // MARK: - Notification
@@ -388,6 +387,5 @@ extension SearchViewController: Notification {
         }
         
         return validStations
-        
     }
 }
