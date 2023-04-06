@@ -256,7 +256,7 @@ private extension SearchViewController {
         ])
     }
     
-//    MARK: - IBActions
+//    MARK: - Actions
     
     @objc func datePickerFromValueChanged(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
