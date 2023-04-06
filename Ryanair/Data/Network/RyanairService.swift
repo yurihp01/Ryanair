@@ -77,6 +77,7 @@ private extension RyanairService {
     func getRequest(with endpoint: RyanairEndpoint, params: [String : Any]) -> URLRequest {
         var request = endpoint.setHeader(params: params)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("ios", forHTTPHeaderField: "client")
         request.httpMethod = "GET"
         return request
     }

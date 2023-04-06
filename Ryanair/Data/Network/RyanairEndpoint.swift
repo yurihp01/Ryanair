@@ -28,12 +28,10 @@ internal extension RyanairEndpoint {
             return URLRequest(url: URL(string: url)!, timeoutInterval: 30)
 
         case .flight:
-            let urlBuilder = URLComponents(string: url) ?? URLComponents()
-            var request = URLRequest(url: urlBuilder.url!, timeoutInterval: 30)
-            request.httpMethod = "GET"
-            
-            params.forEach { request.setValue($0.value as? String, forHTTPHeaderField: $0.key) }
-            return request
+            var urlBuilder = URLComponents(string: url) ?? URLComponents()
+            let queries = params.map { URLQueryItem(name: $0.key, value: $0.value as? String) }
+            urlBuilder.queryItems = queries
+            return URLRequest(url: urlBuilder.url!, timeoutInterval: 30)
         }
     }
 }
