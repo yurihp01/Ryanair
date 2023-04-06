@@ -95,16 +95,13 @@ class SearchDetailsViewController: UIViewController {
 
 extension SearchDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let trip = self.flight?.trips?.first,
-              let flightDates = trip.dates?.filter({ $0.flights?.count ?? 0 > 0 })[section],
-              let flights = flightDates.flights, flights.count > 0 else { return 0 }
-        return flights.count
+        let flights = self.flight?.trips.first?.dates.filter({ $0.flights.count > 0 })[section].flights
+        return flights?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchDetailsCell", for: indexPath) as? SearchDetailsCell else { return UITableViewCell() }
-        if let flightDates = flight?.trips?.first?.dates?.filter({ $0.flights?.count ?? 0 > 0 })[indexPath.section],
-        let flights = flightDates.flights, flights.count > 0 {
+        if let flights = flight?.trips.first?.dates.filter({ $0.flights.count > 0 })[indexPath.section].flights, flights.count > 0 {
             let flight = flights[indexPath.row]
             cell.setFlight(flight)
         }
@@ -114,7 +111,7 @@ extension SearchDetailsViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 110 }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.flight?.trips?.first?.dates?.filter({ $0.flights?.count ?? 0 > 0 }).count ?? 1
+        return flight?.trips.first?.dates.filter({ $0.flights.count > 0 }).count ?? 1
     }
         
     func setConstraints() {

@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct FlightDetail: Codable {
+struct FlightDetail: Decodable {
     let time, timeUTC: [String]
     let duration, flightNumber, flightKey: String
-    let regularFare, businessFare: FareOption?
+    let operatedBy: String?
+    let regularFare: FareOption?
     let faresLeft, infantsLeft : Int
+    let segments: [Segment]
 }

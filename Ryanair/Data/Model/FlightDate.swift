@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FlightDate: Codable {
+struct FlightDate: Decodable {
     let dateOut: String
-    let flights: [FlightDetail]?
+    let flights: [FlightDetail]
 }

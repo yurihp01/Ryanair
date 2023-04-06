@@ -238,8 +238,8 @@
             filePath = "Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,69 +254,54 @@
             filePath = "Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - e172ac53c9bf8741"
+                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - 85a15561c18226e9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Ryanair.SearchDetailsViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
                   moduleName = "Ryanair"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair%2004.01.52/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
+                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "460">
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "448">
                </Location>
                <Location
-                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - e172ac53c9bf8741"
+                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - 85a15561c18226e9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Ryanair.SearchDetailsViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
                   moduleName = "Ryanair"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair%2004.01.52/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
+                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "1048">
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "1104">
                </Location>
                <Location
-                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - e172ac53c9bf8741"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Ryanair.SearchDetailsViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
-                  moduleName = "Ryanair"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair%2004.01.52/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "1352">
-               </Location>
-               <Location
-                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - f80982f99373754f"
+                  uuid = "CDDBA9EB-3693-4A74-8820-5C91A77C2AAD - 9cda7bcb9b4ed4e7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Ryanair.FlightDate) -&gt; Swift.Bool in Ryanair.SearchDetailsViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
                   moduleName = "Ryanair"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair%2004.01.52/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
+                  urlString = "file:///Users/yuri.pedroso/Documents/estudo/Ryanair/Ryanair/Feature/SearchDetails/SearchDetailsViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -459,6 +444,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
             endingLineNumber = "104"
+            landmarkName = "loadJson()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1212E68A-4148-4E84-980D-74F31B478FE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ryanair/Data/Network/RyanairService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "loadJson()"
             landmarkType = "7">
          </BreakpointContent>

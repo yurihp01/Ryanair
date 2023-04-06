@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Flight: Codable {
-    let currency, serverTimeUTC: String
+struct Flight: Decodable {
+    let currency, serverTimeUTC, termsOfUse, routeGroup, tripType, upgradeType: String
     let currPrecision: Int
-    let trips: [Trip]?
+    let trips: [Trip]
 }

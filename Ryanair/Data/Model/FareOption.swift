@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FareOption: Codable {
+struct FareOption: Decodable {
     let fareKey, fareClass: String
     let fares: [Fare]
 }

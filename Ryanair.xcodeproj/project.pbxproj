@@ -31,6 +31,8 @@
 		B35D834729CF452C00A0245A /* RyanairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D834629CF452C00A0245A /* RyanairUITests.swift */; };
 		B35D834929CF452C00A0245A /* RyanairUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D834829CF452C00A0245A /* RyanairUITestsLaunchTests.swift */; };
 		B35D835829CF48DC00A0245A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D835729CF48DC00A0245A /* AppCoordinator.swift */; };
+		B366108729DEE2A000756939 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366108629DEE2A000756939 /* Segment.swift */; };
+		B366108929DF015900756939 /* SeatFee.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366108829DF015900756939 /* SeatFee.swift */; };
 		B3E24E1929DA10BA00908C9C /* searchFlight.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E24E1829DA10BA00908C9C /* searchFlight.json */; };
 		B3E24E1C29DA2D3F00908C9C /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E1B29DA2D3F00908C9C /* SearchTextField.swift */; };
 		B3E24E2329DA52C700908C9C /* SearchDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E2029DA52C700908C9C /* SearchDetailsCoordinator.swift */; };
@@ -85,6 +87,8 @@
 		B35D834629CF452C00A0245A /* RyanairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairUITests.swift; sourceTree = "<group>"; };
 		B35D834829CF452C00A0245A /* RyanairUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B35D835729CF48DC00A0245A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B366108629DEE2A000756939 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
+		B366108829DF015900756939 /* SeatFee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFee.swift; sourceTree = "<group>"; };
 		B3E24E1829DA10BA00908C9C /* searchFlight.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchFlight.json; sourceTree = "<group>"; };
 		B3E24E1B29DA2D3F00908C9C /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		B3E24E2029DA52C700908C9C /* SearchDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -151,12 +155,14 @@
 				B34AE24529D7931800FC4B17 /* Station.swift */,
 				B34AE24729D7935800FC4B17 /* Market.swift */,
 				B34AE24929D795D800FC4B17 /* Stop.swift */,
-				B34AE24F29D79A9700FC4B17 /* Trip.swift */,
 				B34AE24D29D79A1700FC4B17 /* Flight.swift */,
-				B34AE25129D79AEF00FC4B17 /* FlightDetail.swift */,
+				B34AE24F29D79A9700FC4B17 /* Trip.swift */,
 				B34AE25329D79B5D00FC4B17 /* FlightDate.swift */,
+				B34AE25129D79AEF00FC4B17 /* FlightDetail.swift */,
 				B34AE25529D79C5500FC4B17 /* FareOption.swift */,
 				B34AE25729D79D1900FC4B17 /* Fare.swift */,
+				B366108629DEE2A000756939 /* Segment.swift */,
+				B366108829DF015900756939 /* SeatFee.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 				B34AE24E29D79A1700FC4B17 /* Flight.swift in Sources */,
 				B34AE25C29D7B7B800FC4B17 /* SearchViewModel.swift in Sources */,
 				B34AE25829D79D1900FC4B17 /* Fare.swift in Sources */,
+				B366108929DF015900756939 /* SeatFee.swift in Sources */,
 				B35D835829CF48DC00A0245A /* AppCoordinator.swift in Sources */,
 				B3E24E1C29DA2D3F00908C9C /* SearchTextField.swift in Sources */,
 				B3E24E2529DA52C700908C9C /* SearchDetailsViewModel.swift in Sources */,
@@ -445,6 +452,7 @@
 				B34AE25629D79C5500FC4B17 /* FareOption.swift in Sources */,
 				B34AE24029D7914600FC4B17 /* RyanairService.swift in Sources */,
 				B3E24E2829DA5E1000908C9C /* SearchDetailsCell.swift in Sources */,
+				B366108729DEE2A000756939 /* Segment.swift in Sources */,
 				B35D832629CF452A00A0245A /* AppDelegate.swift in Sources */,
 				B34AE25E29D7B7CE00FC4B17 /* SearchCoordinator.swift in Sources */,
 				B34AE24629D7931800FC4B17 /* Station.swift in Sources */,

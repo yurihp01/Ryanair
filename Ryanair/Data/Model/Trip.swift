@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Trip: Codable {
-    let origin, destination: String
-    let dates: [FlightDate]?
+struct Trip: Decodable {
+    let origin, originName, destination, destinationName, routeGroup, tripType, upgradeType: String
+    let dates: [FlightDate]
 }

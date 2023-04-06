@@ -46,8 +46,8 @@ extension RyanairService: RyanairServiceProtocol {
         if let showfakeData = params["showFakeData"] as? Bool, showfakeData == true,
            let flight = loadJson() {
             flightSubject.send([flight])
-            params["origin"] = flight.trips?.first?.origin
-            params["destination"] = flight.trips?.first?.destination
+            params["origin"] = flight.trips.first?.origin
+            params["destination"] = flight.trips.first?.destination
             return flightSubject.eraseToAnyPublisher()
         }
         

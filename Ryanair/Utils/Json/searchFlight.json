@@ -1,79 +1,770 @@
 {
-    "currency" : "EUR",
-    "serverTimeUTC" : "2016-04-11T11:39:35.268Z",
-    "currPrecision" : 2,
-    "trips" : [
-        { "origin" : "DUB",
-            "destination" : "STN",
-            "dates" : [
-                {"dateOut" : "2016-04-11T00:00:00.000",
-                    "flights" : []
-                },
-                { "dateOut" : "2016-04-12T00:00:00.000",
-                    "flights" : [
-                        { "time" : [ "2016-04-12T10:00:00.000",
-                        "2016-04-12T12:50:00.000" ],
-                            "regularFare" : {
-                                "fareKey" : "0~E~~E9LOW~BND9~~8~X",
-                                "fareClass" : "E",
-                                "fares" : [
+    "termsOfUse": "https://www.ryanair.com/ie/en/corporate/terms-of-use=AGREED",
+    "currency": "EUR",
+    "currPrecision": 2,
+    "routeGroup": "UKP",
+    "tripType": "OTHER",
+    "upgradeType": "PLUS",
+    "trips": [
+        {
+            "origin": "DUB",
+            "originName": "Dublin ",
+            "destination": "STN",
+            "destinationName": "London (Stansted)",
+            "routeGroup": "UKP",
+            "tripType": "OTHER",
+            "upgradeType": "PLUS",
+            "dates": [
+                {
+                    "dateOut": "2023-06-07T00:00:00.000",
+                    "flights": [
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 202~ ~~DUB~06/07/2023 06:30~STN~06/07/2023 07:50~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCC2BCRLVNLJHYIELFRPJEQDHFNF6GG3DVB5LMVGCILLZ4H7F3LNQSPCEXEPFCPFDV4AUOYMQYR3QKJQJVF6SLY6TGKZIFFKNLKKMJCSLRIKHEAR6WP3YOAXJVASZ7TD4WBU6D45B2X64WUTFUMEDKOCJASYY",
+                                "fareClass": "N",
+                                "fares": [
                                     {
-                                        "amount" : 105.99,
-                                        "count" : 1,
-                                        "type" : "ADT",
-                                        "hasDiscount" : false,
-                                        "publishedFare" : 105.99
-                                    }, {
-                                        "amount" : 105.99,
-                                        "count" : 1,
-                                        "type" : "CHD",
-                                        "hasDiscount" : false,
-                                        "publishedFare" : 105.99
-                                    }, {
-                                        "amount" : 105.99,
-                                        "count" : 1,
-                                        "type" : "TEEN",
-                                        "hasDiscount" : false,
-                                        "publishedFare" : 105.99
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
                                     }
                                 ]
                             },
-                            "faresLeft" : -1, "timeUTC" : [
-                                "2016-04-12T09:00:00.000Z",
-                            "2016-04-12T11:50:00.000Z" ],
-                            "duration" : "02:50",
-                            "flightNumber" : "FR 7329",
-                            "infantsLeft" : 18,
-                            "flightKey" : "FR~7329~ ~~LIS~04\/12\/2016 10:00~DUB~04\/12\/2016 12:50~",
-                            "businessFare" : {
-                                "fareKey" : "0~E~~E9LBUS~BS09~~4~X",
-                                "fareClass" : "E",
-                                "fares" : [
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 202",
+                                    "time": [
+                                        "2023-06-07T06:30:00.000",
+                                        "2023-06-07T07:50:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T05:30:00.000Z",
+                                        "2023-06-07T06:50:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 202",
+                            "time": [
+                                "2023-06-07T06:30:00.000",
+                                "2023-06-07T07:50:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T05:30:00.000Z",
+                                "2023-06-07T06:50:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 204~ ~~DUB~06/07/2023 08:10~STN~06/07/2023 09:30~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCCQNIZCQ3H7MQ2TSGJUV6VKOOOP3BKQNLSZ3CKR4COZ2EUEWZ6CZNE6OIS57HRDT2F7OT2SCBCO23DCYXL3JBRFDUGFTUPAPLVCHNAKY2ACRTFHAONXDMRNF4O4X3QEZVHVCLZKJ4KMJZ6I3IDQT45E52SYQ",
+                                "fareClass": "N",
+                                "fares": [
                                     {
-                                        "amount" : 154.99, "count" : 1,
-                                        "type" : "ADT",
-                                        "hasDiscount" : false,
-                                        "publishedFare" : 154.99
-                                    }, {
-                                        "amount" : 154.99,
-                                        "count" : 1,
-                                        "type" : "CHD",
-                                        "hasDiscount" : false,
-                                        "publishedFare" : 154.99
-                                    }, {
-                                        "amount" : 154.99,
-                                        "count" : 1,
-                                        "type" : "TEEN",
-                                        "hasDiscount" : false,
-                                        "publishedFare" : 154.99
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
                                     }
                                 ]
-                            }
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 204",
+                                    "time": [
+                                        "2023-06-07T08:10:00.000",
+                                        "2023-06-07T09:30:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T07:10:00.000Z",
+                                        "2023-06-07T08:30:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 204",
+                            "time": [
+                                "2023-06-07T08:10:00.000",
+                                "2023-06-07T09:30:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T07:10:00.000Z",
+                                "2023-06-07T08:30:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 211~ ~~DUB~06/07/2023 10:10~STN~06/07/2023 11:30~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCCUCJ5TLMIC2SY67KMMRCGTVXOEMXVUKZLHQMYPTS4BWGCH3N2WZEGMFNL3T2XUWXZ6ODEIYHENXLDP2LPM5CSHM72BD2KZ6LYSMTJRNROAB3YTCNVHSP6BEENPFEVXVKFHIF6NDUTQSHI6JZR7C74LYYDJA",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 211",
+                                    "time": [
+                                        "2023-06-07T10:10:00.000",
+                                        "2023-06-07T11:30:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T09:10:00.000Z",
+                                        "2023-06-07T10:30:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 211",
+                            "time": [
+                                "2023-06-07T10:10:00.000",
+                                "2023-06-07T11:30:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T09:10:00.000Z",
+                                "2023-06-07T10:30:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 255~ ~~DUB~06/07/2023 11:55~STN~06/07/2023 13:15~~",
+                            "infantsLeft": 15,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCDXBGGFUUJDA7YE2NUEHIZH4GIMZL42UDOT5P3ZAANPORLZDD5ZDUSCDJZNEVSQS7BLXWVCEKSBSI6JT65HAVEEVNAUNQNXLI5MVY6AMP6DULF4K5VEQ3TMXTQPDR2WDOV55S334L4HRSOJA5QE47NPJJJTA",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 255",
+                                    "time": [
+                                        "2023-06-07T11:55:00.000",
+                                        "2023-06-07T13:15:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T10:55:00.000Z",
+                                        "2023-06-07T12:15:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 255",
+                            "time": [
+                                "2023-06-07T11:55:00.000",
+                                "2023-06-07T13:15:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T10:55:00.000Z",
+                                "2023-06-07T12:15:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 288~ ~~DUB~06/07/2023 15:35~STN~06/07/2023 16:55~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCDQOUFM6QP6XFT3OQE5G43SVXMKMIVO2XH67TCVOHDWLDSNS73BKAFHEVZBHNAT24UIOZ6VYGPTYS2YIX6BDYRIKMIDJPGANMVBE3TYAQ277RHKIO7GRATEHDHBGXHRYR6DPFYZB33YW55YIFEFULW5MBAEI",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 288",
+                                    "time": [
+                                        "2023-06-07T15:35:00.000",
+                                        "2023-06-07T16:55:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T14:35:00.000Z",
+                                        "2023-06-07T15:55:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 288",
+                            "time": [
+                                "2023-06-07T15:35:00.000",
+                                "2023-06-07T16:55:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T14:35:00.000Z",
+                                "2023-06-07T15:55:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 272~ ~~DUB~06/07/2023 17:00~STN~06/07/2023 18:20~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCCP2JMJHDAO346D6NQL3ALOLVJ7YPOO7UW6D2LAHE42WYAQH2AA4AGDKFBBXR4SDXQP4NIMC3V65DFPHNNHFNRAHBXZZXI2727ZAVJPQU3SX4AW24YWVI3AGN577H4KF54QXMAR2EWIYKPH5BWYZDR2ZO4TA",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 272",
+                                    "time": [
+                                        "2023-06-07T17:00:00.000",
+                                        "2023-06-07T18:20:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T16:00:00.000Z",
+                                        "2023-06-07T17:20:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 272",
+                            "time": [
+                                "2023-06-07T17:00:00.000",
+                                "2023-06-07T18:20:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T16:00:00.000Z",
+                                "2023-06-07T17:20:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 292~ ~~DUB~06/07/2023 20:05~STN~06/07/2023 21:25~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCDHZ7D4QXWPOVZ5YTKKIV6FP6JGAY6EW26O4KRHXJV47IYPROWSQG5OAX2H45YM4RHFQS6M4SLFIXGOXUWVAP6ZKHCG7A5XOMSI5LRPJ7QCH5MU4F45MZV2AN3KHFKXB26I3ODNR65U4ZRTAW4RGAE5NUGDQ",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 292",
+                                    "time": [
+                                        "2023-06-07T20:05:00.000",
+                                        "2023-06-07T21:25:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T19:05:00.000Z",
+                                        "2023-06-07T20:25:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 292",
+                            "time": [
+                                "2023-06-07T20:05:00.000",
+                                "2023-06-07T21:25:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T19:05:00.000Z",
+                                "2023-06-07T20:25:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        },
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 290~ ~~DUB~06/07/2023 21:45~STN~06/07/2023 23:05~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCDSPVLIGIZKZ32NJV5V5AXC42A73G7M2NDO7X254JTGQSNQEPZJVFQPCFPIFXZNHX3LV5W4RBYRYC3H26J5CNSYNIWJMIEJXCWFNF75EU7OWH2L46OTJWW7M3MP3QPZFQAO7F5WGVJ6LBDLNATZDC7EWZ7RI",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 290",
+                                    "time": [
+                                        "2023-06-07T21:45:00.000",
+                                        "2023-06-07T23:05:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-07T20:45:00.000Z",
+                                        "2023-06-07T22:05:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 290",
+                            "time": [
+                                "2023-06-07T21:45:00.000",
+                                "2023-06-07T23:05:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-07T20:45:00.000Z",
+                                "2023-06-07T22:05:00.000Z"
+                            ],
+                            "duration": "01:20"
+                        }
+                    ]
+                },
+                {
+                    "dateOut": "2023-06-08T00:00:00.000",
+                    "flights": [
+                        {
+                            "faresLeft": -1,
+                            "flightKey": "FR~ 202~ ~~DUB~06/08/2023 06:25~STN~06/08/2023 07:45~~",
+                            "infantsLeft": 18,
+                            "regularFare": {
+                                "fareKey": "6I2ASYRDMPPWVOLPW7Z3CTZYZFTFPJRIXLLIGBQJCOFFDY7SSJU6W5ZTPJJBHSE7BMDLIRS73SJCC2BCRLVNLJHYIELFRPJEQDHFNF5XVUVYYEXG7UIVWV57T3HYKQIFRVHD3W67NH5QXKJY7FHN3VIV7MK4Q7SQ5QDWZBD4JDSJVXULTVFQDIF47XSBWSEACYK5XK734XQ6WQFZYRRRLSOH543NFZ6RPOG45EI",
+                                "fareClass": "N",
+                                "fares": [
+                                    {
+                                        "type": "ADT",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "mandatorySeatFee": {
+                                            "vat": 0.0,
+                                            "amt": 6.0000,
+                                            "total": 6.0000,
+                                            "totalDiscount": 0.0,
+                                            "totalWithoutDiscount": 6.0000,
+                                            "discountType": "None",
+                                            "code": "SETA",
+                                            "qty": 1
+                                        },
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "TEEN",
+                                        "amount": 16.99,
+                                        "count": 2,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    },
+                                    {
+                                        "type": "CHD",
+                                        "amount": 16.99,
+                                        "count": 3,
+                                        "hasDiscount": false,
+                                        "publishedFare": 16.99,
+                                        "discountInPercent": 0,
+                                        "hasPromoDiscount": false,
+                                        "discountAmount": 0.0,
+                                        "hasBogof": false
+                                    }
+                                ]
+                            },
+                            "operatedBy": "",
+                            "segments": [
+                                {
+                                    "segmentNr": 0,
+                                    "origin": "DUB",
+                                    "destination": "STN",
+                                    "flightNumber": "FR 202",
+                                    "time": [
+                                        "2023-06-08T06:25:00.000",
+                                        "2023-06-08T07:45:00.000"
+                                    ],
+                                    "timeUTC": [
+                                        "2023-06-08T05:25:00.000Z",
+                                        "2023-06-08T06:45:00.000Z"
+                                    ],
+                                    "duration": "01:20"
+                                }
+                            ],
+                            "flightNumber": "FR 202",
+                            "time": [
+                                "2023-06-08T06:25:00.000",
+                                "2023-06-08T07:45:00.000"
+                            ],
+                            "timeUTC": [
+                                "2023-06-08T05:25:00.000Z",
+                                "2023-06-08T06:45:00.000Z"
+                            ],
+                            "duration": "01:20"
                         }
                     ]
                 }
             ]
-            
         }
-    ]
+    ],
+    "serverTimeUTC": "2023-04-06T11:16:54.002Z"
 }
