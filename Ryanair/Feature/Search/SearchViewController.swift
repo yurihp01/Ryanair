@@ -10,7 +10,7 @@ import Combine
 
 final class SearchViewController: UIViewController {
     
-    //    MARK: - Add components
+//    MARK: - Add components
     
     private lazy var originField: SearchTextField = {
         let originField = SearchTextField()
@@ -37,7 +37,7 @@ final class SearchViewController: UIViewController {
         adultField.backgroundColor = .white
         adultField.translatesAutoresizingMaskIntoConstraints = false
         adultField.tag = 1
-        adultField.addTarget(self, action: #selector(pickANumber), for: .editingDidBegin)
+        adultField.addTarget(self, action: #selector(numberPickerViewTapped), for: .editingDidBegin)
         return adultField
     }()
     
@@ -47,7 +47,7 @@ final class SearchViewController: UIViewController {
         teenField.backgroundColor = .white
         teenField.translatesAutoresizingMaskIntoConstraints = false
         teenField.tag = 2
-        teenField.addTarget(self, action: #selector(pickANumber), for: .editingDidBegin)
+        teenField.addTarget(self, action: #selector(numberPickerViewTapped), for: .editingDidBegin)
         return teenField
     }()
     
@@ -57,7 +57,7 @@ final class SearchViewController: UIViewController {
         childField.backgroundColor = .white
         childField.translatesAutoresizingMaskIntoConstraints = false
         childField.tag = 3
-        childField.addTarget(self, action: #selector(pickANumber), for: .editingDidBegin)
+        childField.addTarget(self, action: #selector(numberPickerViewTapped), for: .editingDidBegin)
         return childField
     }()
     
@@ -91,7 +91,7 @@ final class SearchViewController: UIViewController {
         dateField.text = dateFormatter.string(from: date)
         dateField.backgroundColor = .white
         dateField.translatesAutoresizingMaskIntoConstraints = false
-        dateField.addTarget(self, action: #selector(pickADate), for: .editingDidBegin)
+        dateField.inputView = datePickerView
         return dateField
     }()
     
@@ -119,6 +119,27 @@ final class SearchViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         return stackView
+    }()
+    
+    private lazy var datePickerView: UIDatePicker = {
+        let datePickerView = UIDatePicker()
+        datePickerView.date = Date()
+        datePickerView.datePickerMode = UIDatePicker.Mode.date
+        datePickerView.backgroundColor = .white
+        datePickerView.locale = Locale.current
+        datePickerView.preferredDatePickerStyle = .wheels
+        datePickerView.minimumDate = Date()
+        datePickerView.addTarget(self, action: #selector(self.datePickerFromValueChanged),
+                                 for: UIControl.Event.valueChanged)
+        return datePickerView
+    }()
+    
+    private lazy var numberPickerView: UIPickerView = {
+        let numberPickerView = UIPickerView()
+        numberPickerView.backgroundColor = .white
+        numberPickerView.dataSource = self
+        numberPickerView.delegate = self
+        return numberPickerView
     }()
     
     //  MARK: - Variables and lifecycles
@@ -149,172 +170,6 @@ final class SearchViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Pickers
-    @IBAction func pickADate(_ sender: UITextField) {
-        let datePickerView: UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePicker.Mode.date
-        datePickerView.backgroundColor = .white
-        datePickerView.locale = Locale.current
-        datePickerView.preferredDatePickerStyle = .wheels
-        datePickerView.minimumDate = Date()
-        dateField.inputView = datePickerView
-        
-        //Show current date to begin with
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-YY"
-        
-        datePickerView.date = Date()
-        
-        //Listen for date changes
-        datePickerView.addTarget(self, action: #selector(self.datePickerFromValueChanged),
-                                 for: UIControl.Event.valueChanged)
-    }
-    
-    @objc func datePickerFromValueChanged(sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-YY"
-        dateField.text = dateFormatter.string(from: sender.date)
-        date = sender.date
-    }
-    
-    func getRequestDate() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateFormattedForRequest = dateFormatter.string(from: date)
-        return dateFormattedForRequest
-    }
-    
-    @IBAction func pickANumber(_ sender: UITextField) {
-        let numberPickerView: UIPickerView = UIPickerView()
-        numberPickerView.backgroundColor = .white
-        numberPickerView.dataSource = self
-        numberPickerView.delegate = self
-        numberPickerView.tag = sender.tag
-        sender.inputView = numberPickerView
-        
-        //Show selected row
-        if let numberSelected = sender.text, let rowInt = Int(numberSelected) {
-            var selectedRow = rowInt
-            if sender.tag == 1 {
-                selectedRow -= 1
-            }
-            numberPickerView.selectRow(selectedRow, inComponent: 0, animated: true)
-        }
-    }
-    
-    @objc func hideFirstResponder() {
-        self.view.endEditing(true)
-    }
-    
-    @objc func buttonTapped(_ sender: Any) {
-        let destinationField = destinationField.text ?? ""
-        let originField = originField.text ?? ""
-        if originField.isEmpty || destinationField.isEmpty {
-            let alert = UIAlertController(title: "Error", message: "Origin and Destination fields would not be empty!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            present(alert, animated: true)
-        } else {
-            coordinator?.goToSearchDetails(headerParams: sendParams())
-        }
-    }
-    
-    func sendParams() -> [String: Any] {
-        let showFakeData = jsonDataSwitch.isOn
-        let originSelected = originField.selectedItem
-        let destinationSelected = destinationField.selectedItem
-        let origin = originSelected?.code ?? ""
-        let destination = destinationSelected?.code ?? ""
-        let adtCount = Int(adultField.text ?? "") ?? 1
-        let childCount = Int(childField.text ?? "") ?? 0
-        let teenCount = Int(teenField.text ?? "") ?? 0
-        
-        let parameters = [ "origin": origin,
-                           "destination": destination,
-                           "dateOut": getRequestDate(),
-                           "dateIn": "",
-                           "adt": adtCount,
-                           "teen": teenCount,
-                           "chd": childCount,
-                           "flexdaysbeforeout": 3,
-                           "flexdaysout": 3,
-                           "flexdaysbeforein": 3,
-                           "flexdaysin": 3,
-                           "roundTrip": false,
-                           "ToUS": "AGREED",
-                           "showFakeData": showFakeData
-        ] as [String: Any]
-        
-        return parameters
-    }
-}
-extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 1 {
-            return "\(row + 1)"
-        }
-        return "\(row)"
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView.tag {
-        case 1:
-            adultField.text = "\(row + 1)"
-        case 2:
-            teenField.text = "\(row)"
-        case 3:
-            childField.text = "\(row)"
-        default:
-            print("Not handling this tag")
-        }
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 1 {
-            return 6
-        }
-        return 7
-    }
-}
-
-extension SearchViewController: ChildNotifiesParent {
-    
-    func updateDestinationStationsFor(selectedItem: Station) {
-        let validStations = getValidStationsFor(selectedItem: selectedItem)
-        
-        if validStations.count > 0 {
-            self.destinationField.updateDataList(data: validStations)
-        }
-        
-        DispatchQueue.main.async {
-            self.destinationField.text = nil
-            self.destinationField.hideList()
-        }
-    }
-    
-    func getValidStationsFor(selectedItem: Station) -> [Station] {
-        var validStations = [Station]()
-        if selectedItem.markets.count > 0 {
-            
-            for market in selectedItem.markets {
-                let validStationResults = self.stations.filter { (station) -> Bool in
-                    station.code == market.code
-                }
-                
-                if let validStation = validStationResults.first {
-                    validStations.append(validStation)
-                }
-            }
-        }
-        
-        return validStations
-        
     }
 }
 
@@ -385,5 +240,150 @@ private extension SearchViewController {
             button.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
+//    MARK: - IBActions
+    
+    @objc func datePickerFromValueChanged(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-YY"
+        dateField.text = dateFormatter.string(from: sender.date)
+        date = sender.date
+    }
+    
+    func getRequestDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateFormattedForRequest = dateFormatter.string(from: date)
+        return dateFormattedForRequest
+    }
+    
+    @objc func numberPickerViewTapped(_ sender: UITextField) {
+        numberPickerView.tag = sender.tag
+        sender.inputView = numberPickerView
+        
+        if let numberSelected = sender.text, let rowInt = Int(numberSelected) {
+            var selectedRow = rowInt
+            if sender.tag == 1 {
+                selectedRow -= 1
+            }
+            numberPickerView.selectRow(selectedRow, inComponent: 0, animated: true)
+        }
+    }
+    
+    @objc func hideFirstResponder() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func buttonTapped(_ sender: Any) {
+        let destinationField = destinationField.text ?? ""
+        let originField = originField.text ?? ""
+        if originField.isEmpty || destinationField.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "Origin and Destination fields would not be empty!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        } else {
+            coordinator?.goToSearchDetails(headerParams: sendParams())
+        }
+    }
+    
+    func sendParams() -> [String: Any] {
+        let showFakeData = jsonDataSwitch.isOn
+        let originSelected = originField.selectedItem
+        let destinationSelected = destinationField.selectedItem
+        let origin = originSelected?.code ?? ""
+        let destination = destinationSelected?.code ?? ""
+        let adtCount = Int(adultField.text ?? "") ?? 1
+        let childCount = Int(childField.text ?? "") ?? 0
+        let teenCount = Int(teenField.text ?? "") ?? 0
+        
+        let parameters = [ "origin": origin,
+                           "destination": destination,
+                           "dateOut": getRequestDate(),
+                           "dateIn": "",
+                           "adt": adtCount,
+                           "teen": teenCount,
+                           "chd": childCount,
+                           "flexdaysbeforeout": 3,
+                           "flexdaysout": 3,
+                           "flexdaysbeforein": 3,
+                           "flexdaysin": 3,
+                           "roundTrip": false,
+                           "ToUS": "AGREED",
+                           "showFakeData": showFakeData
+        ] as [String: Any]
+        
+        return parameters
+    }
 }
 
+// MARK: - UIPicker
+extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == 1 {
+            return "\(row + 1)"
+        }
+        return "\(row)"
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView.tag {
+        case 1:
+            adultField.text = "\(row + 1)"
+        case 2:
+            teenField.text = "\(row)"
+        case 3:
+            childField.text = "\(row)"
+        default:
+            print("Not handling this tag")
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 1 {
+            return 6
+        }
+        return 7
+    }
+}
+
+// MARK: - Notification
+
+extension SearchViewController: Notification {
+    
+    func updateDestinationStationsFor(selectedItem: Station) {
+        let validStations = getValidStationsFor(selectedItem: selectedItem)
+        
+        if validStations.count > 0 {
+            self.destinationField.updateDataList(data: validStations)
+        }
+        
+        DispatchQueue.main.async {
+            self.destinationField.text = nil
+            self.destinationField.hideList()
+        }
+    }
+    
+    func getValidStationsFor(selectedItem: Station) -> [Station] {
+        var validStations = [Station]()
+        if selectedItem.markets.count > 0 {
+            
+            for market in selectedItem.markets {
+                let validStationResults = self.stations.filter { (station) -> Bool in
+                    station.code == market.code
+                }
+                
+                if let validStation = validStationResults.first {
+                    validStations.append(validStation)
+                }
+            }
+        }
+        
+        return validStations
+        
+    }
+}

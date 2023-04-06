@@ -457,8 +457,8 @@
             filePath = "Ryanair/Data/Network/RyanairService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "loadJson()"
             landmarkType = "7">
          </BreakpointContent>

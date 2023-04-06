@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchCoordinator: Coordinator {
+final class SearchCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     var childCoordinators: [Coordinator] = []

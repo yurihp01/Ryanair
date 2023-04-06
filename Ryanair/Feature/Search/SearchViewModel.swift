@@ -12,7 +12,7 @@ protocol SearchViewModelProtocol {
     func bindStations() -> AnyPublisher<[Station], RyanairError>
 }
 
-class SearchViewModel {
+final class SearchViewModel {
     private var service: RyanairServiceProtocol
     private var cancellable = Set<AnyCancellable>()
     

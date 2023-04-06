@@ -8,49 +8,19 @@
 import Foundation
 import Combine
 
-enum RyanairEndpoint {
-    case stations
-    case flight
-}
-
-private extension RyanairEndpoint {
-    var url: String {
-        switch self {
-        case .stations:
-            return "https://mobile-testassets-dev.s3.eu-west-1.amazonaws.com/stations.json"
-        case .flight:
-            return "https://nativeapps.ryanair.com/api/v4/en-IE/Availability"
-        }
-    }
-    
-    func setHeader(params: [String:Any]) -> URLRequest {
-        switch self {
-        case .stations:
-            return URLRequest(url: URL(string: url)!, timeoutInterval: 30)
-
-        case .flight:
-            let urlBuilder = URLComponents(string: url) ?? URLComponents()
-            var request = URLRequest(url: urlBuilder.url!, timeoutInterval: 30)
-            request.httpMethod = "GET"
-            
-            params.forEach { request.setValue($0.value as? String, forHTTPHeaderField: $0.key) }
-            return request
-        }
-    }
-}
-
 protocol RyanairServiceProtocol {
     func getStations() -> AnyPublisher<[Station], RyanairError>
     func getFlight(params: inout [String : Any]) -> AnyPublisher<[Flight], RyanairError>
 }
 
-class RyanairService {
+final class RyanairService {
     private var cancellable = Set<AnyCancellable>()
     private let flightSubject = CurrentValueSubject<[Flight], RyanairError>([])
     private let stationSubject = CurrentValueSubject<[Station], RyanairError>([])
 
 }
 
+// MARK: - RyanairServiceProtocol
 extension RyanairService: RyanairServiceProtocol {
     func getStations() -> AnyPublisher<[Station], RyanairError> {
         URLSession.shared.dataTaskPublisher(for: getRequest(with: .stations, params: [:]))
@@ -102,6 +72,7 @@ extension RyanairService: RyanairServiceProtocol {
     }
 }
 
+//MARK: - Private Extension
 private extension RyanairService {
     func getRequest(with endpoint: RyanairEndpoint, params: [String : Any]) -> URLRequest {
         var request = endpoint.setHeader(params: params)

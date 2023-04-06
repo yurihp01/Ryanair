@@ -9,13 +9,13 @@
 
 import UIKit
 
-protocol ChildNotifiesParent: AnyObject {
+protocol Notification: AnyObject {
     func updateDestinationStationsFor(selectedItem: Station)
 }
 
 class SearchTextField: UITextField {
 
-    weak var parentDelegate: ChildNotifiesParent!
+    weak var parentDelegate: Notification!
     var dataList: [Station] = [Station]()
     var resultsList: [Station] = [Station]()
     var selectedItem: Station!

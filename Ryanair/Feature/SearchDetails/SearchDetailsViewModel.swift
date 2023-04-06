@@ -13,7 +13,7 @@ protocol SearchDetailsViewModelProtocol {
     var headerParams: [String: Any] { get }
 }
 
-class SearchDetailsViewModel {
+final class SearchDetailsViewModel {
     private var service: RyanairServiceProtocol
     private let subscriber = CurrentValueSubject<[Flight], RyanairError>([])
     private var cancellable = Set<AnyCancellable>()

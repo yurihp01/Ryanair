@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchDetailsCell: UITableViewCell {
+final class SearchDetailsCell: UITableViewCell {
 
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [dateLabel, flightNumberLabel, fareLabel])

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B333269329DE6A3A004EC24F /* RyanairEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B333269229DE6A3A004EC24F /* RyanairEndpoint.swift */; };
 		B34AE23C29D7901800FC4B17 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AE23B29D7901800FC4B17 /* Coordinator.swift */; };
 		B34AE24029D7914600FC4B17 /* RyanairService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AE23F29D7914600FC4B17 /* RyanairService.swift */; };
 		B34AE24229D791BE00FC4B17 /* RyanairError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AE24129D791BE00FC4B17 /* RyanairError.swift */; };
@@ -30,7 +31,6 @@
 		B35D834729CF452C00A0245A /* RyanairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D834629CF452C00A0245A /* RyanairUITests.swift */; };
 		B35D834929CF452C00A0245A /* RyanairUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D834829CF452C00A0245A /* RyanairUITestsLaunchTests.swift */; };
 		B35D835829CF48DC00A0245A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D835729CF48DC00A0245A /* AppCoordinator.swift */; };
-		B3E24E1729D9C95500908C9C /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E1629D9C95500908C9C /* Data+Extensions.swift */; };
 		B3E24E1929DA10BA00908C9C /* searchFlight.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E24E1829DA10BA00908C9C /* searchFlight.json */; };
 		B3E24E1C29DA2D3F00908C9C /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E1B29DA2D3F00908C9C /* SearchTextField.swift */; };
 		B3E24E2329DA52C700908C9C /* SearchDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E2029DA52C700908C9C /* SearchDetailsCoordinator.swift */; };
@@ -57,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B333269229DE6A3A004EC24F /* RyanairEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairEndpoint.swift; sourceTree = "<group>"; };
 		B34AE23B29D7901800FC4B17 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B34AE23F29D7914600FC4B17 /* RyanairService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairService.swift; sourceTree = "<group>"; };
 		B34AE24129D791BE00FC4B17 /* RyanairError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairError.swift; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		B35D834629CF452C00A0245A /* RyanairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairUITests.swift; sourceTree = "<group>"; };
 		B35D834829CF452C00A0245A /* RyanairUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RyanairUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B35D835729CF48DC00A0245A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		B3E24E1629D9C95500908C9C /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		B3E24E1829DA10BA00908C9C /* searchFlight.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchFlight.json; sourceTree = "<group>"; };
 		B3E24E1B29DA2D3F00908C9C /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		B3E24E2029DA52C700908C9C /* SearchDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -140,6 +140,7 @@
 			children = (
 				B34AE23F29D7914600FC4B17 /* RyanairService.swift */,
 				B34AE24129D791BE00FC4B17 /* RyanairError.swift */,
+				B333269229DE6A3A004EC24F /* RyanairEndpoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				B3E24E1A29DA2D2200908C9C /* Custom */,
-				B3E24E1529D9C94900908C9C /* Extensions */,
 				B3E24E1429D9C27700908C9C /* Json */,
 			);
 			path = Utils;
@@ -265,14 +265,6 @@
 				B3E24E1829DA10BA00908C9C /* searchFlight.json */,
 			);
 			path = Json;
-			sourceTree = "<group>";
-		};
-		B3E24E1529D9C94900908C9C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B3E24E1629D9C95500908C9C /* Data+Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B3E24E1A29DA2D2200908C9C /* Custom */ = {
@@ -434,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E24E1729D9C95500908C9C /* Data+Extensions.swift in Sources */,
 				B34AE25029D79A9700FC4B17 /* Trip.swift in Sources */,
 				B34AE23C29D7901800FC4B17 /* Coordinator.swift in Sources */,
 				B3E24E2429DA52C700908C9C /* SearchDetailsViewController.swift in Sources */,
@@ -457,6 +448,7 @@
 				B35D832629CF452A00A0245A /* AppDelegate.swift in Sources */,
 				B34AE25E29D7B7CE00FC4B17 /* SearchCoordinator.swift in Sources */,
 				B34AE24629D7931800FC4B17 /* Station.swift in Sources */,
+				B333269329DE6A3A004EC24F /* RyanairEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
