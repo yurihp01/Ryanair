@@ -52,15 +52,21 @@ class SearchDetailsViewController: UIViewController {
     var viewModel: SearchDetailsViewModelProtocol?
     private var cancellable = Set<AnyCancellable>()
     private var flight: Flight?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Flights"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        view.backgroundColor = .blue
+        setView()
         bindFlights()
         setConstraints()
+    }
+}
+
+private extension SearchDetailsViewController {
+    func setView() {
+        title = "Flights"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        view.backgroundColor = .blue
     }
     
     func bindFlights() {
@@ -82,26 +88,25 @@ class SearchDetailsViewController: UIViewController {
     }
     
     func setTableView() {
-        if let parameters = viewModel?.headerParams,
-           let origin = parameters["origin"] as? String,
-           let destination = parameters["destination"] as? String {
-            tableView.isHidden = false
-            tableView.reloadData()
-            originLabel.text = "Origin: \(origin)"
-            destinationLabel.text = "Destination: \(destination)"
-        }
+        tableView.isHidden = false
+        tableView.reloadData()
+    
+        let origin = flight?.trips.first?.origin ?? ""
+        let destination = flight?.trips.first?.destination ?? ""
+        originLabel.text = "Origin: \(origin)"
+        destinationLabel.text = "Destination: \(destination)"
     }
 }
 
 extension SearchDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let flights = self.flight?.trips.first?.dates.filter({ $0.flights.count > 0 })[section].flights
+        let flights = self.flight?.getFlights(with: section)
         return flights?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchDetailsCell", for: indexPath) as? SearchDetailsCell else { return UITableViewCell() }
-        if let flights = flight?.trips.first?.dates.filter({ $0.flights.count > 0 })[indexPath.section].flights, flights.count > 0 {
+        if let flights = flight?.getFlights(with: indexPath.section), flights.count > 0 {
             let flight = flights[indexPath.row]
             cell.setFlight(flight)
         }
@@ -111,7 +116,7 @@ extension SearchDetailsViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 110 }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return flight?.trips.first?.dates.filter({ $0.flights.count > 0 }).count ?? 1
+        return flight?.dates.count ?? 1
     }
         
     func setConstraints() {

@@ -12,3 +12,13 @@ struct Flight: Decodable {
     let currPrecision: Int
     let trips: [Trip]
 }
+
+extension Flight {
+    var dates: [FlightDate] {
+        self.trips.first?.dates.filter({ $0.flights.count > 0 }) ?? []
+    }
+    
+    func getFlights(with section: Int) -> [FlightDetail] {
+        return self.trips.first?.dates.filter({ $0.flights.count > 0 })[section].flights ?? []
+    }
+}
