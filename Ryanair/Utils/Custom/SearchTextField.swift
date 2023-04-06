@@ -29,6 +29,7 @@ class SearchTextField: UITextField {
     }
 
     func updateDataList(data: [Station]) {
+        superview?.bringSubviewToFront(self)
         self.dataList = data
     }
 
@@ -116,14 +117,7 @@ extension SearchTextField {
 
     func updateSearchTableView() {
         if let tableView = tableView {
-            superview?.bringSubviewToFront(tableView)
-            var tableHeight: CGFloat = 0
-            tableHeight = tableView.contentSize.height
-
-            // Set a bottom margin of 10p
-            if tableHeight < tableView.contentSize.height {
-                tableHeight -= 10
-            }
+            let tableHeight = (superview?.safeAreaLayoutGuide.layoutFrame.height ?? CGFloat()) - 100
 
             // Set tableView frame
             var tableViewFrame = CGRect(x: 0, y: 0, width: frame.size.width - 4, height: tableHeight)
@@ -138,8 +132,8 @@ extension SearchTextField {
             tableView.layer.masksToBounds = true
             tableView.separatorInset = UIEdgeInsets.zero
             tableView.layer.cornerRadius = 5.0
-            tableView.separatorColor = UIColor.lightGray
-            tableView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+            tableView.separatorColor = .lightGray
+            tableView.backgroundColor = .clear
 
             if self.isFirstResponder {
                 superview?.bringSubviewToFront(self)

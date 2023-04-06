@@ -33,6 +33,7 @@
 		B35D835829CF48DC00A0245A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35D835729CF48DC00A0245A /* AppCoordinator.swift */; };
 		B366108729DEE2A000756939 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366108629DEE2A000756939 /* Segment.swift */; };
 		B366108929DF015900756939 /* SeatFee.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366108829DF015900756939 /* SeatFee.swift */; };
+		B366108B29DF122B00756939 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B366108A29DF122B00756939 /* UITextField+Extensions.swift */; };
 		B3E24E1929DA10BA00908C9C /* searchFlight.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E24E1829DA10BA00908C9C /* searchFlight.json */; };
 		B3E24E1C29DA2D3F00908C9C /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E1B29DA2D3F00908C9C /* SearchTextField.swift */; };
 		B3E24E2329DA52C700908C9C /* SearchDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E24E2029DA52C700908C9C /* SearchDetailsCoordinator.swift */; };
@@ -89,6 +90,7 @@
 		B35D835729CF48DC00A0245A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B366108629DEE2A000756939 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		B366108829DF015900756939 /* SeatFee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatFee.swift; sourceTree = "<group>"; };
+		B366108A29DF122B00756939 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		B3E24E1829DA10BA00908C9C /* searchFlight.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchFlight.json; sourceTree = "<group>"; };
 		B3E24E1B29DA2D3F00908C9C /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		B3E24E2029DA52C700908C9C /* SearchDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -256,9 +258,18 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		B366108E29DF180500756939 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B366108A29DF122B00756939 /* UITextField+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B3E24E1129D9C04000908C9C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B366108E29DF180500756939 /* Extensions */,
 				B3E24E1A29DA2D2200908C9C /* Custom */,
 				B3E24E1429D9C27700908C9C /* Json */,
 			);
@@ -450,6 +461,7 @@
 				B34AE24829D7935800FC4B17 /* Market.swift in Sources */,
 				B35D832A29CF452A00A0245A /* SearchViewController.swift in Sources */,
 				B34AE25629D79C5500FC4B17 /* FareOption.swift in Sources */,
+				B366108B29DF122B00756939 /* UITextField+Extensions.swift in Sources */,
 				B34AE24029D7914600FC4B17 /* RyanairService.swift in Sources */,
 				B3E24E2829DA5E1000908C9C /* SearchDetailsCell.swift in Sources */,
 				B366108729DEE2A000756939 /* Segment.swift in Sources */,
