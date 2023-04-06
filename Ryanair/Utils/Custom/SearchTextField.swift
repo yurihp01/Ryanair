@@ -26,7 +26,6 @@ class SearchTextField: UITextField {
     open override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         tableView?.removeFromSuperview()
-
     }
 
     func updateDataList(data: [Station]) {
@@ -79,14 +78,10 @@ class SearchTextField: UITextField {
     }
 
     fileprivate func filter() {
-        guard let searchTerm = self.text else {
-            return
-        }
-
+        guard let text = text?.uppercased() else { return }
         resultsList = dataList.filter { (station) -> Bool in
-            // Need to allow for diacritics e.g. ü in Münster
-            station.name.starts(with: searchTerm) ||
-            station.code.starts(with: searchTerm)
+            return  station.code.uppercased().contains(text) ||
+                    station.name.uppercased().contains(text)
         }
 
         tableView?.reloadData()
@@ -107,7 +102,7 @@ extension SearchTextField {
         }
 
         if let tableView = tableView {
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "SearchTextFieldCell")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
             tableView.delegate = self
             tableView.dataSource = self
             self.window?.addSubview(tableView)
@@ -120,7 +115,6 @@ extension SearchTextField {
     }
 
     func updateSearchTableView() {
-
         if let tableView = tableView {
             superview?.bringSubviewToFront(tableView)
             var tableHeight: CGFloat = 0
@@ -159,9 +153,8 @@ extension SearchTextField: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedItem = resultsList[indexPath.row]
-        let code = resultsList[indexPath.row].code 
         let name = resultsList[indexPath.row].name 
-        self.text = "\(code), \(name)"
+        self.text = name
         tableView.isHidden = true
         self.endEditing(true)
 
@@ -178,9 +171,7 @@ extension SearchTextField: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTextFieldCell",
-                                                 for: indexPath) as UITableViewCell
-
+        let cell = UITableViewCell()
         let code = resultsList[indexPath.row].code 
         let name = resultsList[indexPath.row].name 
 
