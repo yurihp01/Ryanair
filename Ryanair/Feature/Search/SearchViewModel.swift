@@ -16,7 +16,7 @@ final class SearchViewModel {
     private var service: RyanairServiceProtocol
     private var cancellable = Set<AnyCancellable>()
     
-    init(service: RyanairService) {
+    init(service: RyanairServiceProtocol) {
         self.service = service
     }
 }

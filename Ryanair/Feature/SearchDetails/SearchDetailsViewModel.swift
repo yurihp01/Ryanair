@@ -19,7 +19,7 @@ final class SearchDetailsViewModel {
     private var cancellable = Set<AnyCancellable>()
     var headerParams: [String: Any]
     
-    init(service: RyanairService, headerParams: [String: Any]) {
+    init(service: RyanairServiceProtocol, headerParams: [String: Any]) {
         self.service = service
         self.headerParams = headerParams
     }

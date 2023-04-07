@@ -1,0 +1,58 @@
+{
+    "stations": [
+        {
+            "code": "AAL",
+            "name": "Aalborg",
+            "alternateName": null,
+            "alias": [
+                "aalborg"
+            ],
+            "countryCode": "DK",
+            "countryName": "Denmark",
+            "countryAlias": null,
+            "countryGroupCode": "0",
+            "countryGroupName": "EU/EEA",
+            "timeZoneCode": "DK",
+            "latitude": "570535N",
+            "longitude": "0095100E",
+            "mobileBoardingPass": true,
+            "markets": [
+                {
+                    "code": "STN",
+                    "group": null
+                }
+            ],
+            "notices": null,
+            "tripCardImageUrl": "https://assets.ryanair.com/resources/ui/mobile/stations/AAL_v2.png"
+        },
+        {
+            "code": "AAR",
+            "name": "Aarhus",
+            "alternateName": null,
+            "alias": [
+                "aarhus"
+            ],
+            "countryCode": "DK",
+            "countryName": "Denmark",
+            "countryAlias": null,
+            "countryGroupCode": "0",
+            "countryGroupName": "EU/EEA",
+            "timeZoneCode": "DK",
+            "latitude": "561800N",
+            "longitude": "0103708E",
+            "mobileBoardingPass": true,
+            "markets": [
+                {
+                    "code": "GDN",
+                    "group": null
+                },
+                {
+                    "code": "STN",
+                    "group": "CITY_GOLD"
+                }
+            ],
+            "notices": null,
+            "tripCardImageUrl": "https://assets.ryanair.com/resources/ui/mobile/stations/AAR_v2.png"
+        }
+    ]
+}

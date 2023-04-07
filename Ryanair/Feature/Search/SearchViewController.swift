@@ -138,14 +138,6 @@ final class SearchViewController: UIViewController {
         return datePickerView
     }()
     
-    private lazy var numberPickerView: UIPickerView = {
-        let numberPickerView = UIPickerView()
-        numberPickerView.backgroundColor = .white
-        numberPickerView.dataSource = self
-        numberPickerView.delegate = self
-        return numberPickerView
-    }()
-    
     //  MARK: - Variables and lifecycles
     
     weak var coordinator: SearchCoordinator?
@@ -178,7 +170,6 @@ final class SearchViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     required init?(coder: NSCoder) {
@@ -191,6 +182,7 @@ private extension SearchViewController {
         title = "Search Flights"
         view.backgroundColor = .blue
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideFirstResponder)))
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         setConstraints()
         addBinds()
     }
@@ -266,6 +258,10 @@ private extension SearchViewController {
     }
     
     @objc func numberPickerViewTapped(_ sender: UITextField) {
+        let numberPickerView = UIPickerView()
+        numberPickerView.backgroundColor = .white
+        numberPickerView.dataSource = self
+        numberPickerView.delegate = self
         numberPickerView.tag = sender.tag
         sender.inputView = numberPickerView
         
@@ -335,6 +331,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         switch pickerView.tag {
         case 1:
             adultField.text = "\(row + 1)"
@@ -351,7 +348,7 @@ extension SearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { 6 }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { pickerView.tag == 1 ? 6 : 7 }
 }
 
 // MARK: - Notification
